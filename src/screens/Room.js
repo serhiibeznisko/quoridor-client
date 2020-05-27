@@ -36,7 +36,7 @@ class Room extends React.Component {
 
     setWebsocket = () => {
         const socketClient = new WebSocket(
-            `ws://localhost:8001/ws/room/room`
+            process.env.WS_URL + `room/room`
         );
         const onSocketEvent = this.onSocketEvent;
 

@@ -15,7 +15,9 @@ const Board = ({onCellClick, takeWall, board, children}) => {
     const canTakeWall = !cellInput;
 
     const onMouseMove = (e) => {
-        if(!canTakeWall) return;
+        if (!canTakeWall) {
+            return;
+        }
 
         const center = centerPoint.current.getBoundingClientRect();
         const mouseX = e.clientX - center.x;
@@ -35,8 +37,8 @@ const Board = ({onCellClick, takeWall, board, children}) => {
             color: null,
         };
 
-        if(wallInput == null || wall.x !== wallInput.x || wall.y !== wallInput.y || wall.isVertical !== wallInput.isVertical) {
-            if(isWallTaken(wall)) {
+        if (wallInput == null || wall.x !== wallInput.x || wall.y !== wallInput.y || wall.isVertical !== wallInput.isVertical) {
+            if (isWallTaken(wall)) {
                 wall.color = "#df2310";
             }
             setWallInput(wall);
@@ -44,7 +46,7 @@ const Board = ({onCellClick, takeWall, board, children}) => {
     };
 
     const onClick = () => {
-        if(wallInput && canTakeWall) {
+        if (wallInput && canTakeWall) {
             takeWall(wallInput);
         }
     };
@@ -101,7 +103,7 @@ const Board = ({onCellClick, takeWall, board, children}) => {
                 <div>
                     {children}
                     {canTakeWall && wallInput && isBoardHovered && (
-                        <Wall {...wallInput} color={wallInput.color || "rgba(124,231,115,0.5)"}/>
+                        <Wall {...wallInput} color={wallInput.color || "rgba(124,231,115, 0.9)"}/>
                     )}
                 </div>
             </div>

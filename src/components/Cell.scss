@@ -5,12 +5,13 @@
     height: ($cell-size - $wall-width);
     width: ($cell-size - $wall-width);
     margin: $wall-width / 2;
-    background: #dfdfdf;
-    border-radius: 1px;
-    box-shadow: 3px 3px 0 0 rgb(175, 175, 175);
+    background: #efefef;
+    border-radius: 4px;
+    box-shadow: 2px 2px 0 0 #b3b3b3;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.1s ease;
 
     &__hover {
         cursor: pointer;

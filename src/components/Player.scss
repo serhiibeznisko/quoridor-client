@@ -16,6 +16,7 @@
     width: $player-size;
     border-radius: 50%;
     text-align: center;
+    box-shadow: 0 0 3px 3px rgba(80,80,80,0.1);
 
     &__letter {
         font-size: $font-size-xl;

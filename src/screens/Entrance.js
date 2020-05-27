@@ -3,6 +3,8 @@ import classNames from "classnames";
 import {Redirect} from "react-router-dom";
 import style from "./Entrance.scss";
 
+import Icon from "../components/Icon";
+
 const Entrance = () => {
     const [name, setName] = useState("");
     const [color, setColor] = useState("");
@@ -22,12 +24,12 @@ const Entrance = () => {
     }
 
     const colors = [
-        "#ffe835",
-        "#f29203",
+        "#ed973c",
+        "#c700f3",
+        "#00f38d",
         "#f25319",
-        "#9e5a31",
-        "#532B2A",
-        "#732B24",
+        "#4C2928",
+        "#0292f3",
     ];
 
     return (
@@ -41,6 +43,7 @@ const Entrance = () => {
                             onChange={e => setName(e.target.value)}
                             className={style.name__input}
                             required
+                            autoFocus
                         />
                         <button
                             type={"submit"}
@@ -53,6 +56,10 @@ const Entrance = () => {
                     </form>
             ) : (
                 <div className={style.color}>
+                    <div className={style.color__back} onClick={() => setNameSubmitted(false)}>
+                        <Icon name={"angle-left"} fontSize={16}/>
+                        Назад
+                    </div>
                     <div className={style.color__title}>
                         Цвет моей фишки...
                     </div>
