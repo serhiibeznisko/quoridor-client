@@ -1,0 +1,24 @@
+$font-family: "Raleway", cursive;
+
+// Font sizes
+$font-size-xl: 28px;
+$font-size-l: 18px;
+$font-size-m: 16px;
+$font-size-s: 14px;
+$font-size-xs: 13px;
+$font-size-xxs: 12px;
+
+// Font weights
+$font-regular: 400;
+$font-medium: 700;
+
+// Colors
+$background-color: #ffffff;
+$board-color: #f0f0f0;
+$board-color2: #432c2c;
+
+$radius: 4px;
+$cell-size: 64px;
+$wall-width: 8px;
+$wall-length: ($cell-size * 2 - $wall-width);
+$player-size: 48px;

@@ -1,0 +1,23 @@
+@import "../styles/index";
+
+.container {
+    background: $board-color;
+    padding: 12px;
+    border-radius: $radius;
+}
+
+.board {
+    position: relative;
+    width: ($cell-size * 9);
+    height: ($cell-size * 9);
+
+    &__center {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__row {
+        display: flex;
+    }
+}

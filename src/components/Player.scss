@@ -1,0 +1,27 @@
+@import "../styles/index";
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $cell-size;
+    width: $cell-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player {
+    height: $player-size;
+    width: $player-size;
+    border-radius: 50%;
+    text-align: center;
+
+    &__letter {
+        font-size: $font-size-xl;
+        font-weight: bold;
+        color: #fff;
+        opacity: 0.4;
+        line-height: $player-size;
+    }
+}

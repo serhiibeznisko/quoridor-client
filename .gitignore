@@ -1,0 +1,21 @@
+# Default
+.idea
+.vscode
+
+# Node
+node_modules
+
+# Dist & test
+test
+dist
+
+# BD, logs
+*.log
+
+# Other
+npm-debug.log*
+
+# Special
+.DS_Store*
+Thumbs.db
+.env

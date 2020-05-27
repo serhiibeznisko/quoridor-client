@@ -1,0 +1,26 @@
+@import "../styles/index";
+
+.wall {
+    position: absolute;
+    border-radius: 2px;
+
+    &__vertical {
+        margin-left: (-$wall-width / 2);
+        margin-top: ($wall-width / 2);
+
+        &__inner {
+            height: $wall-length;
+            width: $wall-width;
+        }
+    }
+
+    &__horizontal {
+        margin-left: ($wall-width / 2);
+        margin-top: (-$wall-width / 2);
+
+        &__inner {
+            width: $wall-length;
+            height: $wall-width;
+        }
+    }
+}

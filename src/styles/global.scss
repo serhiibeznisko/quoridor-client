@@ -1,0 +1,11 @@
+@import "index";
+
+body {
+  font-family: $font-family;
+  background: $background-color;
+}
+
+p {
+  font-weight: $font-regular;
+  font-size: $font-size-s;
+}

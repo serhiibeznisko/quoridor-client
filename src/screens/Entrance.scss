@@ -1,0 +1,65 @@
+@import "../styles/index";
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    display: flex;
+    align-items: flex-end;
+
+    &__input {
+        font-size: $font-size-xl;
+        padding: 6px 0;
+    }
+
+    &__submit {
+        height: 46px;
+        padding: 0 32px;
+        cursor: pointer;
+        border-radius: 4px;
+        background: #f3f3f3;
+        margin-left: 16px;
+        transition: all 0.3s ease;
+        font-size: $font-size-s;
+
+        &__active {
+            background: #f29203;
+            color: #fff;
+        }
+    }
+}
+
+.color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        font-size: $font-size-xl;
+        margin-bottom: 12px;
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 600px;
+    }
+
+    &__cell {
+        width: 180px;
+        height: 180px;
+        margin: 8px;
+        border-radius: 2px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px 0px rgba(176, 176, 176, 0.75);
+        transition: all 0.1s ease;
+
+        &:hover {
+            box-shadow: 6px 6px 0px 0px rgba(197, 197, 197, 0.75);
+        }
+    }
+}
