@@ -2,8 +2,12 @@ import React from "react";
 import style from "./Player.scss";
 
 import BoardElement from "./BoardElement";
+import {motion} from "framer-motion";
+import {CELL_SIZE} from "../constants/config";
 
 const Player = ({x, y, letter, color}) => {
+    x *= CELL_SIZE;
+    y *= CELL_SIZE;
 
     function shadeColor(color, percent) {
 
@@ -27,7 +31,10 @@ const Player = ({x, y, letter, color}) => {
     }
 
     return (
-        <BoardElement x={x} y={y} className={style.container}>
+        <motion.div
+            className={style.container}
+            animate={{x, y}}
+        >
             <div
                 className={style.player}
                 style={{
@@ -36,7 +43,7 @@ const Player = ({x, y, letter, color}) => {
             >
                 <span className={style.player__letter}>{letter}</span>
             </div>
-        </BoardElement>
+        </motion.div>
     );
 };
 

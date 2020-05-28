@@ -5,10 +5,10 @@ import uuid4 from "uuid4";
 import style from "./Room.scss";
 
 import Board from "../components/Board";
-import Player from "../components/Player";
-import Wall from "../components/Wall";
+import Button from "../components/Button";
 
 import {WIDTH, HEIGHT} from "../constants/config";
+import PlayerCard from "../components/PlayerCard";
 
 class Room extends React.Component {
     constructor(props) {
@@ -31,10 +31,10 @@ class Room extends React.Component {
     }
 
     componentDidMount() {
-        this.setWebsocket();
+        this.setWebSocket();
     }
 
-    setWebsocket = () => {
+    setWebSocket = () => {
         const socketClient = new WebSocket(
             process.env.WS_URL + `room/room`
         );
@@ -50,6 +50,14 @@ class Room extends React.Component {
 
         socketClient.sendJson = (data) => {
             return socketClient.send(JSON.stringify(data));
+        };
+
+        socketClient.onopen = () => {
+            const {player} = this.state;
+            this.client.sendJson({
+                type: "player",
+                data: player,
+            });
         };
 
         this.client = socketClient;
@@ -78,28 +86,11 @@ class Room extends React.Component {
         this.setState({player: nextPlayer});
         this.client.sendJson({
             type: "player",
-            data: {...nextPlayer},
+            data: nextPlayer,
         });
     };
 
-    getWalls = (isVertical) => {
-        const walls = [];
-        const {board} = this.state;
-
-        board[isVertical].forEach((row, y) => row.forEach((color, x) => {
-            if(color != null) {
-                walls.push(
-                    <Wall key={`${y}${x}`} x={x} y={y} isVertical={isVertical} color={color}/>
-                );
-            }
-        }));
-
-        return walls;
-    };
-
-    takeWall = (wall) => {
-        const {player} = this.state;
-        wall.color = wall.color == null ? player.color : null;
+    onWallSubmit = (wall) => {
         this.setWall(wall);
         this.client.sendJson({
             type: "wall",
@@ -121,17 +112,33 @@ class Room extends React.Component {
 
         return (
             <div className={style.container}>
-                <Board
-                    board={board}
-                    onCellClick={this.onCellClick}
-                    takeWall={this.takeWall}
-                >
-                    {player && <Player {...player}/>}
-                    {opponent && <Player {...opponent}/>}
-
-                    {this.getWalls(true)}
-                    {this.getWalls(false)}
-                </Board>
+                <div className={style.status}>
+                    Ожидание хода оппонента...
+                </div>
+                <div className={style.content}>
+                    {player && (
+                        <PlayerCard
+                            player={player}
+                            number={1}
+                            actions={(
+                                <>
+                                    <Button label={"Отменить Ход"}/>
+                                    <Button label={"Очистить поле"}/>
+                                </>
+                            )}
+                        />
+                    )}
+                    <Board
+                        board={board}
+                        player={player}
+                        opponent={opponent}
+                        onCellClick={this.onCellClick}
+                        onWallSubmit={this.onWallSubmit}
+                    />
+                    {opponent && (
+                        <PlayerCard player={opponent} number={2}/>
+                    )}
+                </div>
             </div>
         );
     }

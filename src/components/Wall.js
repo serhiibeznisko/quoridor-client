@@ -2,18 +2,21 @@ import React from "react";
 import classNames from "classnames";
 import style from "./Wall.scss";
 
-import BoardElement from "./BoardElement";
+import {CELL_SIZE} from "../constants/config";
 
 
 const Wall = ({x, y, isVertical, color}) => {
+    x *= CELL_SIZE;
+    y *= CELL_SIZE;
+
     return (
-        <BoardElement
-            x={x} y={y} color={color}
+        <div
             className={classNames({
                 [style.wall]: true,
                 [style.wall__vertical]: isVertical,
                 [style.wall__horizontal]: !isVertical,
             })}
+            style={{background: color, left: x, top: y}}
         >
             <div
                 className={classNames({
@@ -21,7 +24,7 @@ const Wall = ({x, y, isVertical, color}) => {
                     [style.wall__horizontal__inner]: !isVertical,
                 })}
             />
-        </BoardElement>
+        </div>
     );
 };
 

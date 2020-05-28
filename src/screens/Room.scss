@@ -3,7 +3,20 @@
 .container {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #f08, #d0e, #91f, #70f, #40f, #05f, #09f) center 40% / 100% 500% no-repeat;
+    background: linear-gradient(180deg, #fbfbfb, #f1f1f1) center 40% / 100% no-repeat;
+}
+
+.status {
+    text-align: center;
+    font-size: $font-size-l;
+    font-weight: bold;
+    color: #404040;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
 }

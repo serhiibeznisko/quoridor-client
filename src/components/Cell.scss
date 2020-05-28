@@ -5,22 +5,23 @@
     height: ($cell-size - $wall-width);
     width: ($cell-size - $wall-width);
     margin: $wall-width / 2;
-    background: #efefef;
+    background: #87580a;
     border-radius: 4px;
-    box-shadow: 2px 2px 0 0 #b3b3b3;
+    //box-shadow: 2px 2px 0 0 #99640b;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.1s ease;
 
     &__hover {
-        cursor: pointer;
-        background: #7ce773;
-        box-shadow: 3px 3px 0 0 #64c261;
+        background: #93630a;
+        //box-shadow: 3px 3px 0 0 #64c261;
     }
 
     &__inner {
+        cursor: pointer;
         height: 40px;
         width: 40px;
+        z-index: 1000;
     }
 }

@@ -3,6 +3,7 @@
 .wall {
     position: absolute;
     border-radius: 2px;
+    animation: opacity-animation 0.2s;
 
     &__vertical {
         margin-left: (-$wall-width / 2);
@@ -23,4 +24,9 @@
             height: $wall-width;
         }
     }
+}
+
+@keyframes opacity-animation {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }

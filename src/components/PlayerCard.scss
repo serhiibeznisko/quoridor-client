@@ -1,0 +1,32 @@
+@import "../styles/index";
+
+.player {
+    width: 200px;
+    margin: 64px 16px 0 16px;
+
+    &__name {
+        font-size: $font-size-l;
+        margin-bottom: 12px;
+
+        span {
+            color: #fff;
+            padding: 2px 12px;
+            margin: 0 6px;
+            border-radius: 4px;
+        }
+    }
+
+    &__walls {
+        margin-bottom: 12px;
+    }
+
+    &__actions {
+        margin-bottom: 12px;
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            margin-bottom: 6px;
+        }
+    }
+}
